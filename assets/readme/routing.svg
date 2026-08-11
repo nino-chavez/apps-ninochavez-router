@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img"
+     aria-label="Routing diagram: apps.ninochavez.co paths proxy to each app's own Cloudflare Pages project, with root-absolute links rewritten to carry the path prefix">
+  <title>Path-prefix routing to each app's own Pages project</title>
+  <defs>
+    <style>
+      .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .p { font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7890FF"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="520" fill="#171815"/>
+
+  <text class="m" x="48" y="52" font-size="13" fill="#AAA9A1" letter-spacing="1.6">APPS.NINOCHAVEZ.CO/*</text>
+  <text class="p" x="48" y="96" font-size="34" font-weight="700" fill="#F3F3EF">One host. Each app still owns its page.</text>
+  <text class="p" x="48" y="128" font-size="16" fill="#AAA9A1">A path prefix is proxied to that app’s own Pages project — nothing is copied.</text>
+
+  <!-- request -->
+  <rect x="48" y="176" width="268" height="96" rx="10" fill="#20211E" stroke="#393A36"/>
+  <text class="m" x="68" y="206" font-size="12" fill="#777770">REQUEST</text>
+  <text class="m" x="68" y="234" font-size="14" fill="#F3F3EF">/cutting-board/</text>
+  <text class="m" x="68" y="256" font-size="14" fill="#F3F3EF">/yawn/</text>
+
+  <!-- worker -->
+  <rect x="380" y="160" width="300" height="128" rx="10" fill="#20211E" stroke="#4A4B46"/>
+  <text class="m" x="400" y="190" font-size="12" fill="#777770">WORKER</text>
+  <text class="p" x="400" y="216" font-size="15" fill="#F3F3EF" font-weight="700">match prefix → proxy</text>
+  <text class="p" x="400" y="242" font-size="13.5" fill="#AAA9A1">HTMLRewriter prefixes every</text>
+  <text class="p" x="400" y="262" font-size="13.5" fill="#AAA9A1">root-absolute href / src</text>
+
+  <line x1="316" y1="224" x2="374" y2="224" stroke="#7890FF" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- upstreams: the real project hostnames -->
+  <rect x="744" y="152" width="408" height="72" rx="10" fill="#20211E" stroke="#393A36"/>
+  <text class="m" x="764" y="180" font-size="12" fill="#777770">CUTTING BOARD</text>
+  <text class="m" x="764" y="204" font-size="12.5" fill="#F3F3EF">film-room-portal.pages.dev</text>
+
+  <rect x="744" y="240" width="408" height="72" rx="10" fill="#20211E" stroke="#393A36"/>
+  <text class="m" x="764" y="268" font-size="12" fill="#777770">YAWN</text>
+  <text class="m" x="764" y="292" font-size="12.5" fill="#F3F3EF">yawn-site.pages.dev</text>
+
+  <line x1="680" y1="206" x2="738" y2="188" stroke="#7890FF" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="680" y1="242" x2="738" y2="276" stroke="#7890FF" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- the reason this exists -->
+  <rect x="48" y="356" width="1104" height="1" fill="#393A36"/>
+  <text class="m" x="48" y="396" font-size="12" fill="#777770" letter-spacing="1.6">WHY NOT JUST COPY THE BUILDS</text>
+  <text class="p" x="48" y="428" font-size="16" fill="#F3F3EF">A copied build goes stale the moment its app redeploys.</text>
+  <text class="p" x="48" y="456" font-size="16" fill="#AAA9A1">On a download page that means a wrong version number and a wrong checksum.</text>
+  <text class="p" x="48" y="488" font-size="15" fill="#E9A529">Adding an app is one line in ROUTES.</text>
+</svg>

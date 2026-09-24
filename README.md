@@ -9,7 +9,7 @@ rewrites root-absolute links so the app's assets resolve under the prefix.
 ```
 apps.ninochavez.co/cutting-board/  →  private-beta-kit.film-room-portal.pages.dev
 apps.ninochavez.co/yawn/           →  yawn-site.pages.dev
-apps.ninochavez.co/                →  apps-ninochavez.pages.dev
+apps.ninochavez.co/                →  apps-ninochavez-git.pages.dev
 ```
 
 ## Why not just copy the builds into one project

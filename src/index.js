@@ -17,7 +17,7 @@ const ROUTES = {
   '/yawn': 'https://yawn-site.pages.dev',
 };
 
-const INDEX = 'https://apps-ninochavez.pages.dev';
+const INDEX = 'https://apps-ninochavez-git.pages.dev';
 
 /** Prefixes a root-absolute URL, leaving protocol-relative, external, anchor, and data URLs alone. */
 function prefixAttr(value, prefix) {
